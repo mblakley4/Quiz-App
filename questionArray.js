@@ -217,7 +217,7 @@ const STORE = [
     },
     //10th question
     {
-        question: 'When lifting weights, it is important to prioritize ________ over __________.',
+        question: 'When lifting weights, it is important to prioritize ________ over ________.',
             choice1OBJ: {
                 choice1:'mirror muscles; leg day',
                 correctChoice: false,
