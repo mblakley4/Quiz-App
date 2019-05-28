@@ -8,11 +8,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="main.css" type="text/css">
     <title>Weight Training Quiz App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="index.js"></script>
 </head>
 <body>
-    <h1>Weight Training Knowledge Check</h1>
+    <header>
+        <div class="js-userProgress"></div>
+        <h1 class="homePage">Weight Training Knowledge Check</h1>
+        <div class="js-userScore"></div>
+    </header>
     <main role="main">
-        <div class="container">
+        <div class="container homePage">
             <p>Check your knowledge of common fitness exercises, how those exercies target certain muscles, 
                 and some basic terminology.</p>
             <p>Let's see if you're ready to hit the weights!</p>
@@ -20,6 +26,8 @@
                 <span class="startButtonLabel">Take the Quiz!</span>
             </button>
         </div>
+        <div class="js-quizPage"></div>
+        <div class="js-scorePage"></div>
     </main>
 </body>
 </html>
