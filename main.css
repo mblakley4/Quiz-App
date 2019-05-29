@@ -4,8 +4,14 @@
 
 html {
     background-color: black;
+    padding: 10px;
+    height: 100%;
 }
 
+body {
+    height: 100%;
+    color: rgb(216, 216, 216); 
+}
 /*
 font-family: 'Work Sans', sans-serif;
 font-family: 'Arimo', sans-serif;
@@ -13,50 +19,110 @@ font-family: 'Anton', sans-serif;
 font-family: 'Staatliches', cursive;
 */
 
-body {
-    margin-top: 25px;
+.statusBar {
+    font-family: 'Anton', sans-serif;
+    font-size: 3vh;
+    position: relative;
+}
+
+.row2 {
+    display: inline-block;
+    height: 25px;
+    text-align: center;
+}
+
+.js-userProgress {
+   text-align: left;
+   position: absolute;
+   left: 50px;
+   top: 50%;
+
+}
+
+.js-userScore {
+    text-align: right;
+    position: absolute;
+    right: 50px;
+    top: 50%
+}
+
+.barbell {
+    width: 100%;
+    height: auto;
 }
 
 h1 {
     text-align: center;
+    margin-top: 25px;
     margin-bottom: 25px;
-    font-family: 'Anton', sans-serif;
-    font-size: 20pt;
-    color: rgb(216, 216, 216);
+    font-family: 'Staatliches', cursive;
+    font-size: 5vh;
 }
 
 .container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
-    position: relative;
-    padding: 10px 50px 50px 50px;
-    border: 1px dashed rgb(207, 160, 160);
-    color: rgb(216, 216, 216);
+    width: 85%;
+    height: 90%
+    padding: 5px 5px 5px 5px;
+    /*border: 1px dashed white;*/
+    font-family: 'Arimo', sans-serif;
+    font-size: 3vh;
 }
 
-p {
-    margin-top: 25px;
-    font-family: 'Arimo', sans-serif;
-    font-size: 16pt;
+div.homePage p {
+    width: 80%;
+}
+
+.gymPic {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    height: auto;
 }
 
 .hidden {
 display: none;
 }
 
-.startQuizButton {
-    margin: 25px;
+h2 {
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 3vh;
+    margin: 15px;
+    padding: 5px;
+}
+
+fieldset {
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    border: none;
+}
+
+.answers {
+    padding: 5px;
+    margin: 10px;
+    line-height: 35px;
+}
+
+
+.submitAnswer {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 button {
-    display: inline-block;
+    display: block;
     border: none;
     padding: 1rem 2rem;
-    margin: 0;
+    margin: 15px;
     text-decoration: none;
     background: #4a4f55;
     color: rgb(216, 216, 216);
@@ -82,4 +148,11 @@ button:focus {
 
 button:active {
     transform: scale(0.99);
+}
+
+@media screen and (min-width: 900px) {
+    .gymPic {
+        max-width: 800px;
+        max-height: 400px;
+    }
 }

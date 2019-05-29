@@ -1,12 +1,40 @@
-function renderQuizPage() {
+let questionNumber = 0;
+let userScore = 0;
+
 //function to render quiz page
+function renderQuizPage() {
 console.log('`renderQuizPage` ran');
 //add class .hidden to "homePage" elements
-//if questionNumber > 10, call renderScorePage(), else show next question
-//adds HTML to <header> for .js-userProgress from progressIncrementer()
-    //use <progress> element for this
-//adds HTML to <header> for .js-userScore from scoreIncrementer()
-//adds HTML to <main> to populate the form, radio, and submit buttons
+$('.homePage').addClass('hidden');
+if (questionNumber < STORE.length) {
+    //adds HTML to <header> for .js-userProgress
+    $('.statusBar').removeClass('hidden');
+    $('.js-userProgress').append(
+        `<span>QUESTION<br>${questionNumber} of ${STORE.length}</span>`);
+    //adds HTML to <header> for .js-userScore
+    $('.js-userScore').append(
+        `<span>${userScore} of ${questionNumber}<br>CORRECT</span>`);
+    //adds HTML to <main> to populate the form, radio, and submit buttons
+    $('.js-quizPage').append(
+        `<h2>${STORE[questionNumber].question}</h2>
+        <form><fieldset>
+        <div class="answers">
+        <input type="radio" id="choice1" name="answer" value="${STORE[questionNumber].choice1OBJ.choice1}" required>
+        ${STORE[questionNumber].choice1OBJ.choice1}<br>
+        <input type="radio" id="choice2" name="answer" value="${STORE[questionNumber].choice2OBJ.choice2}" required>
+        ${STORE[questionNumber].choice2OBJ.choice2}<br>
+        <input type="radio" id="choice3" name="answer" value="${STORE[questionNumber].choice3OBJ.choice3}" required>
+        ${STORE[questionNumber].choice3OBJ.choice3}<br>
+        <input type="radio" id="choice4" name="answer" value="${STORE[questionNumber].choice4OBJ.choice4}" required>
+        ${STORE[questionNumber].choice4OBJ.choice4}
+        </div>
+        <button type="submit" class="submitAnswer">Submit Answer</button>
+        </fieldset></form>`
+    );
+}
+else {
+    renderScorePage();
+}
 }
 
 
@@ -50,7 +78,7 @@ function progressIncrementer() {
 //function to increment userProgress through quiz, 
 //i.e. what is the current question number
     console.log('`progressIncrementer` ran');
-//increments variable questionNumber  --can I avoid a global here?--
+//increments variable questionNumber
 //calls renderQuizPage()
 } 
 
@@ -58,7 +86,7 @@ function progressIncrementer() {
 function scoreIncrementer() {
 //function to increment the user score
     console.log('`scoreIncrementer` ran');
-//increment variable userScore  --can I avoid a global here?--
+//increment variable userScore 
 }
 
 
@@ -71,8 +99,8 @@ function renderScorePage() {
 //adds button to Restart the Quiz
 }
 
-function runQuiz() {
 //function to start the quiz 
+function runQuiz() {
     renderQuizPage();
     checkAnswer();
     correctAnswerDisplay();
@@ -83,6 +111,7 @@ function runQuiz() {
     renderScorePage();
 //actively listens for startQuizButton clicks
 //sets userScore and questionNumber back to zero
+//sets userAnswers to false in STORE
 //calls renderQuizPage()
 }
 
