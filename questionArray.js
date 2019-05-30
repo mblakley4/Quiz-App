@@ -44,7 +44,7 @@ const STORE = [
             choice4OBJ: {
                 choice4:"'getting swoll'",
                 correctChoice: false,
-                userAnswer: false,
+                userAnswer: true,
             },
     },
     //3rd question
