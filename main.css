@@ -4,13 +4,19 @@
 
 html {
     background-color: black;
-    padding: 10px;
-    height: 100%;
 }
 
 body {
     height: 100%;
     color: rgb(216, 216, 216); 
+    max-width: 1080px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+p {
+    margin: 10px;
 }
 /*
 font-family: 'Work Sans', sans-serif;
@@ -20,9 +26,9 @@ font-family: 'Staatliches', cursive;
 */
 
 .statusBar {
-    font-family: 'Anton', sans-serif;
-    font-size: 3vh;
     position: relative;
+    display: flex;
+    font-family: 'Anton', sans-serif;
 }
 
 .row2 {
@@ -36,7 +42,6 @@ font-family: 'Staatliches', cursive;
    position: absolute;
    left: 50px;
    top: 15%;
-
 }
 
 .js-userScore {
@@ -47,7 +52,7 @@ font-family: 'Staatliches', cursive;
 }
 
 .barbell {
-    width: 100%;
+    width: 90%;
     max-height: 100px;
 }
 
@@ -55,8 +60,6 @@ h1 {
     text-align: center;
     margin-top: 25px;
     margin-bottom: 25px;
-    font-family: 'Staatliches', cursive;
-    font-size: 5vh;
 }
 
 .container {
@@ -67,12 +70,11 @@ h1 {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
     width: 85%;
     height: 90%
-    padding: 5px 5px 5px 5px;
-    /*border: 1px dashed white;*/
-    font-family: 'Arimo', sans-serif;
-    font-size: 3vh;
+    padding: 5px;
 }
 
 div.homePage p {
@@ -90,10 +92,14 @@ div.homePage p {
 display: none;
 }
 
-h2 {
+.js-quizPage {
+    display: flex;
+    max-width: 1020;
+    flex-direction: column;
+}
+
+h3, h4, h5 {
     text-align: center;
-    font-family: 'Work Sans', sans-serif;
-    font-size: 3vh;
     margin: 15px;
     padding: 5px;
 }
@@ -107,15 +113,56 @@ fieldset {
 }
 
 .answers {
-    padding: 5px;
-    margin: 10px;
+    margin: 15px;
     line-height: 35px;
 } 
 
+.radioButtons {
+    margin: 25px;
+    padding-left: 10px;
+}
 
-.submitAnswer, .nextQuestionButton {
+.correctAnswer, .incorrectAnswer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.questionFeedback {
+    position: absolute;
+    width: 90%;
+    padding: 10px;
+    font-family: 'Arimo', sans-serif;
+}
+
+.finalMessage {
+    position: absolute;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.scratchMetal {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-height: 400px;
+}
+
+
+.diamondPlate {
+    margin:10px;
+    width: 85%;
+    height: auto;
+}
+
+.submitAnswer, .nextQuestionButton, .restartQuizButton {
     margin-left: auto;
     margin-right: auto;
+    display: flex;
 }
 
 button {
@@ -124,7 +171,7 @@ button {
     padding: 1rem 2rem;
     margin: 15px;
     text-decoration: none;
-    background: #4a4f55;
+    background: #376bac;
     color: rgb(216, 216, 216);
     font-family: 'Staatliches', cursive;
     font-size: 1rem;
@@ -138,7 +185,7 @@ button {
 
 button:hover,
 button:focus {
-    background: #3c6294;
+    background: #404853;
 }
 
 button:focus {

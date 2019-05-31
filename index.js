@@ -19,9 +19,9 @@ function renderQuizPage() {
             `<span>CORRECT<br>${userScore} of ${questionNumber}</span>`);
         //adds HTML to <main> to populate the form, radio, and submit buttons
         $('.js-quizPage').html(
-            `<h2>${STORE[questionNumber].question}</h2>
+            `<h3>${STORE[questionNumber].question}</h3>
             <form class="answers"><fieldset>
-            <div>
+            <div class="radioButtons">
             <input type="radio" id="choice1OBJ" name="answer" value="${STORE[questionNumber].choice1OBJ.choice1}" required>
             ${STORE[questionNumber].choice1OBJ.choice1}<br>
             <input type="radio" id="choice2OBJ" name="answer" value="${STORE[questionNumber].choice2OBJ.choice2}" required>
@@ -79,25 +79,32 @@ function checkAnswer() {
 function correctAnswerDisplay() {
     console.log('`correctAnswerDisplay` ran');
     $('.answers').addClass('hidden');
-    $('h2').append(
+    $('h3').append(
         `<div class="correctAnswer">
+        <img class="scratchMetal" src="http://americanovirtual.com/pluginfile.php/13977/mod_folder/content/0/BATMANS/a7c63ab43ba164ed536556b278443bf1.jpg"
+        alt="distressed sheet metal">
+        <div class="questionFeedback">
         <h4>Nice Work!</h4>
         <p>'${userAnswerVal}' was correct!</p>
         <button class="nextQuestionButton">Next</button>
-        </div>`
+        </div></div>`
     );
 }
 
 //function to render display for incorrect answer
 function incorrectAnswerDisplay() {
     console.log('`incorrectAnswerDisplay` ran');
+    let correctAnswer = STORE[questionNumber]
     $('.answers').addClass('hidden');
-    $('h2').append(
+    $('h3').append(
         `<div class="incorrectAnswer">
+        <img class="scratchMetal" src="http://americanovirtual.com/pluginfile.php/13977/mod_folder/content/0/BATMANS/a7c63ab43ba164ed536556b278443bf1.jpg"
+        alt="distressed sheet metal">
+        <div class="questionFeedback">
         <h4>Not quite</h4>
         <p>'${userAnswerVal}' was the correct answer</p>
         <button class="nextQuestionButton">Next</button>
-        </div>`
+        </div></div>`
     );
 }
 
@@ -133,24 +140,30 @@ function renderScorePage() {
     console.log('didUserPass is' + didUserPass);
     if (didUserPass === true) {
         $('.js-quizPage').html(
-            `<h2>Here's the roll-up:</h2>
+            `<img class="diamondPlate" src="https://i.pinimg.com/originals/96/6a/7b/966a7b0fa51a0e145aa6b2fe8cd56923.jpg"
+            alt="black diamond plate">
+            <div class="finalMessage">
             <div class="finalScore">
+            <h4>Here's the roll-up:</h4>
             <p>You got ${userScore} / ${STORE.length} correct.</p></div>
-            <div class="finalMessage passingScore">
-            <h5>Congratulations!</h5>
-            <p>Now go get busy in the gym!</p></div>
-            <button class="restartQuizButton">Take the Quiz Again</button>`
+            <div class="passingScore">
+            <h4>Congratulations!</h4>
+            <p>Now go get busy in the gym!</p>
+            <button class="restartQuizButton">Take the Quiz Again</button></div></div>`
         );
     }
     else {
         $('.js-quizPage').html(
-            `<h2>Here's the roll-up:</h2>
+            `<img class="diamondPlate" src="https://i.pinimg.com/originals/96/6a/7b/966a7b0fa51a0e145aa6b2fe8cd56923.jpg"
+            alt="black diamond plate">
+            <div class="finalMessage">
             <div class="finalScore">
+            <h4>Here's the roll-up:</h4>
             <p>You got ${userScore} / ${STORE.length} correct.</p></div>
-            <div class="finalMessage failingScore">
+            <div class="failingScore">
             <p>Getting to the gym is half the battle...</p>
-            <p>You should study up and try again or invest in a personal trainer.</p></div>
-            <button class="restartQuizButton">Take the Quiz Again</button>`
+            <p>You should study up and try again or invest in a personal trainer.</p>
+            <button class="restartQuizButton">Take the Quiz Again</button></div></div>`
         );
     }
 }
