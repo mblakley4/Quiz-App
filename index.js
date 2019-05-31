@@ -2,6 +2,7 @@
 
 let questionNumber = 0;
 let userScore = 0;
+let userAnswer = '';
 
 //function to render quiz page
 function renderQuizPage() {
@@ -42,29 +43,34 @@ function getUserAnswer(){
     $('.js-quizPage').on('click', `.submitAnswer`, function() {
         event.preventDefault();
         console.log('you submitted this answer:');
-        //get the value of clicked radio
+        //get the value of clicked radio to determine user selected answer
          let radios = document.getElementsByName('answer');
          console.log(radios);
          for (let i = 0; i < radios.length; i++) {
              if (radios[i].checked) {
-                let userAnswer = radios[i].id;
+                userAnswer = radios[i].id;
                 console.log(`userAnswer is ${userAnswer}`)
+                //store user answer
+                STORE[questionNumber][userAnswer].userAnswer = true;
             }
         }
+        checkAnswer();
     });
 }
 
-//function to check answer
+//function to check if userAnswer is correct or not
 function checkAnswer() {
     console.log('`checkAnswer` ran');
-    
-        //determine what answer the user selected
-        //getUserAnswer();
-        //take user answer, check if correctChoice is 'true'
-//checks if answer is correct
-//calls correctAnswerDisplay() or incorrectAnswerDisplay
-//calls scoreIncrementer() if correct;
-//advanced functionality: store user response in array
+    //console.log(`correct choice is ${STORE[questionNumber][userAnswer].correctChoice}`);
+    if (STORE[questionNumber][userAnswer].correctChoice) {
+        console.log('you got it right');
+        scoreIncrementer();
+        correctAnswerDisplay();
+    }
+    else {
+        console.log('you got it wrong')
+        incorrectAnswerDisplay();
+    }
 }
 
 
@@ -105,8 +111,8 @@ function progressIncrementer() {
 
 //function to increment the user score
 function scoreIncrementer() {
-    console.log('`scoreIncrementer` ran');
-//increment variable userScore 
+    userScore++;
+    console.log("userScore is " + userScore);
 }
 
 
@@ -122,7 +128,7 @@ function renderScorePage() {
 //function to start the quiz 
 function runQuiz() {
     getUserAnswer();
-    checkAnswer();
+    //checkAnswer();
     // correctAnswerDisplay();
     // incorrectAnswerDisplay();
     // advanceQuizPage();
