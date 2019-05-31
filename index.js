@@ -2,7 +2,8 @@
 
 let questionNumber = 0;
 let userScore = 0;
-let userAnswer = '';
+let userAnswerID = '';
+let userAnswerVal = '';
 
 //function to render quiz page
 function renderQuizPage() {
@@ -11,13 +12,13 @@ function renderQuizPage() {
     if (questionNumber < STORE.length) {
     //adds HTML to <header> for .js-userProgress
         $('.statusBar').removeClass('hidden');
-        $('.js-userProgress').append(
-            `<span>QUESTION<br>${questionNumber} of ${STORE.length}</span>`);
+        $('.js-userProgress').html(
+            `<span>QUESTION<br>${questionNumber+1} of ${STORE.length}</span>`);
         //adds HTML to <header> for .js-userScore
-        $('.js-userScore').append(
+        $('.js-userScore').html(
             `<span>${userScore} of ${questionNumber}<br>CORRECT</span>`);
         //adds HTML to <main> to populate the form, radio, and submit buttons
-        $('.js-quizPage').append(
+        $('.js-quizPage').html(
             `<h2>${STORE[questionNumber].question}</h2>
             <form class="answers"><fieldset>
             <div>
@@ -48,10 +49,11 @@ function getUserAnswer(){
          console.log(radios);
          for (let i = 0; i < radios.length; i++) {
              if (radios[i].checked) {
-                userAnswer = radios[i].id;
-                console.log(`userAnswer is ${userAnswer}`)
+                userAnswerID = radios[i].id;
+                userAnswerVal = radios[i].value;
+                console.log(`userAnswerVal is ${userAnswerVal}`)
                 //store user answer
-                STORE[questionNumber][userAnswer].userAnswer = true;
+                STORE[questionNumber][userAnswerID].userAnswer = true;
             }
         }
         checkAnswer();
@@ -62,7 +64,7 @@ function getUserAnswer(){
 function checkAnswer() {
     console.log('`checkAnswer` ran');
     //console.log(`correct choice is ${STORE[questionNumber][userAnswer].correctChoice}`);
-    if (STORE[questionNumber][userAnswer].correctChoice) {
+    if (STORE[questionNumber][userAnswerID].correctChoice) {
         console.log('you got it right');
         scoreIncrementer();
         correctAnswerDisplay();
@@ -78,34 +80,45 @@ function checkAnswer() {
 //function to render display for correct answer
 function correctAnswerDisplay() {
     console.log('`correctAnswerDisplay` ran');
-//keeps HTML to the <header> element
-//keeps HTML to display question
-//adds container box w/ 'got it correct' text and a 'next button'
+    $('.answers').addClass('hidden');
+    $('h2').append(
+        `<div class="correctAnswer">
+        <h4>Nice Work!</h4>
+        <p>'${userAnswerVal}' was correct!</p>
+        <button class="nextQuestionButton">Next Question</button>
+        </div>`
+    );
 }
 
 
 //function to render display for incorrect answer
 function incorrectAnswerDisplay() {
     console.log('`incorrectAnswerDisplay` ran');
-//keeps HTML to the <header> element
-//keeps HTML to display question
-//adds container box w/ 'got it wrong' text and a 'next button'
+    $('.answers').addClass('hidden');
+    $('h2').append(
+        `<div class="incorrectAnswer">
+        <h4>Not quite</h4>
+        <p>'${userAnswerVal}' was the correct answer</p>
+        <button class="nextQuestionButton">Next Question</button>
+        </div>`
+    );
 }
 
 //function to move the quiz to the next question or score page
 function advanceQuizPage() {
     console.log('`advanceQuizPage` ran');
-//actively listens for clicks to 'next button'
-//calls progressIncrementer()
-
+    //actively listens for clicks to 'next button'
+    $('.js-quizPage').on('click', `.nextQuestionButton`, function() {
+        event.preventDefault();
+        progressIncrementer();
+        renderQuizPage();
+    });
 }
 
 //function to increment userProgress through quiz, 
 function progressIncrementer() {
-//i.e. what is the current question number
     console.log('`progressIncrementer` ran');
-//increments variable questionNumber
-//calls renderQuizPage()
+    questionNumber++;
 } 
 
 
@@ -128,10 +141,7 @@ function renderScorePage() {
 //function to start the quiz 
 function runQuiz() {
     getUserAnswer();
-    //checkAnswer();
-    // correctAnswerDisplay();
-    // incorrectAnswerDisplay();
-    // advanceQuizPage();
+    advanceQuizPage();
     // progressIncrementer();
     // scoreIncrementer();
     // renderScorePage();

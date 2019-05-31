@@ -113,7 +113,7 @@ fieldset {
 } 
 
 
-.submitAnswer {
+.submitAnswer, .nextQuestionButton {
     margin-left: auto;
     margin-right: auto;
 }
