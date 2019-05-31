@@ -5,7 +5,6 @@ let userScore = 0;
 
 //function to render quiz page
 function renderQuizPage() {
-    console.log('`renderQuizPage` ran');
     //add class .hidden to "homePage" elements
     $('.homePage').addClass('hidden');
     if (questionNumber < STORE.length) {
@@ -19,15 +18,15 @@ function renderQuizPage() {
         //adds HTML to <main> to populate the form, radio, and submit buttons
         $('.js-quizPage').append(
             `<h2>${STORE[questionNumber].question}</h2>
-            <form><fieldset>
-            <div class="answers">
-            <input type="radio" id="choice1" name="answer" value="${STORE[questionNumber].choice1OBJ.choice1}" required>
+            <form class="answers"><fieldset>
+            <div>
+            <input type="radio" id="choice1OBJ" name="answer" value="${STORE[questionNumber].choice1OBJ.choice1}" required>
             ${STORE[questionNumber].choice1OBJ.choice1}<br>
-            <input type="radio" id="choice2" name="answer" value="${STORE[questionNumber].choice2OBJ.choice2}" required>
+            <input type="radio" id="choice2OBJ" name="answer" value="${STORE[questionNumber].choice2OBJ.choice2}" required>
             ${STORE[questionNumber].choice2OBJ.choice2}<br>
-            <input type="radio" id="choice3" name="answer" value="${STORE[questionNumber].choice3OBJ.choice3}" required>
+            <input type="radio" id="choice3OBJ" name="answer" value="${STORE[questionNumber].choice3OBJ.choice3}" required>
             ${STORE[questionNumber].choice3OBJ.choice3}<br>
-            <input type="radio" id="choice4" name="answer" value="${STORE[questionNumber].choice4OBJ.choice4}" required>
+            <input type="radio" id="choice4OBJ" name="answer" value="${STORE[questionNumber].choice4OBJ.choice4}" required>
             ${STORE[questionNumber].choice4OBJ.choice4}
             </div>
             <button type="submit" class="submitAnswer">Submit Answer</button>
@@ -38,11 +37,30 @@ function renderQuizPage() {
     }
 }
 
+function getUserAnswer(){
+    //listens in the DOM for clicks to the submit button 
+    $('.js-quizPage').on('click', `.submitAnswer`, function() {
+        event.preventDefault();
+        console.log('you submitted this answer:');
+        //get the value of clicked radio
+         let radios = document.getElementsByName('answer');
+         console.log(radios);
+         for (let i = 0; i < radios.length; i++) {
+             if (radios[i].checked) {
+                let userAnswer = radios[i].id;
+                console.log(`userAnswer is ${userAnswer}`)
+            }
+        }
+    });
+}
 
-function checkAnswer() {
 //function to check answer
+function checkAnswer() {
     console.log('`checkAnswer` ran');
-//listens in the DOM for clicks to the submit button 
+    
+        //determine what answer the user selected
+        //getUserAnswer();
+        //take user answer, check if correctChoice is 'true'
 //checks if answer is correct
 //calls correctAnswerDisplay() or incorrectAnswerDisplay
 //calls scoreIncrementer() if correct;
@@ -50,8 +68,9 @@ function checkAnswer() {
 }
 
 
-function correctAnswerDisplay() {
+
 //function to render display for correct answer
+function correctAnswerDisplay() {
     console.log('`correctAnswerDisplay` ran');
 //keeps HTML to the <header> element
 //keeps HTML to display question
@@ -59,24 +78,24 @@ function correctAnswerDisplay() {
 }
 
 
-function incorrectAnswerDisplay() {
 //function to render display for incorrect answer
+function incorrectAnswerDisplay() {
     console.log('`incorrectAnswerDisplay` ran');
 //keeps HTML to the <header> element
 //keeps HTML to display question
 //adds container box w/ 'got it wrong' text and a 'next button'
 }
 
-function advanceQuizPage() {
 //function to move the quiz to the next question or score page
+function advanceQuizPage() {
     console.log('`advanceQuizPage` ran');
 //actively listens for clicks to 'next button'
 //calls progressIncrementer()
 
 }
 
-function progressIncrementer() {
 //function to increment userProgress through quiz, 
+function progressIncrementer() {
 //i.e. what is the current question number
     console.log('`progressIncrementer` ran');
 //increments variable questionNumber
@@ -84,15 +103,15 @@ function progressIncrementer() {
 } 
 
 
-function scoreIncrementer() {
 //function to increment the user score
+function scoreIncrementer() {
     console.log('`scoreIncrementer` ran');
 //increment variable userScore 
 }
 
 
-function renderScorePage() {
 //function to render the score page
+function renderScorePage() {
     console.log('`renderScorePage` ran');
 //keeps HTML to the <header> element
 //adds container HTML for passing score %
@@ -102,8 +121,8 @@ function renderScorePage() {
 
 //function to start the quiz 
 function runQuiz() {
-    // renderQuizPage();
-    // checkAnswer();
+    getUserAnswer();
+    checkAnswer();
     // correctAnswerDisplay();
     // incorrectAnswerDisplay();
     // advanceQuizPage();
