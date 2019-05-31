@@ -35,7 +35,7 @@ font-family: 'Staatliches', cursive;
    text-align: left;
    position: absolute;
    left: 50px;
-   top: 50%;
+   top: 15%;
 
 }
 
@@ -43,12 +43,12 @@ font-family: 'Staatliches', cursive;
     text-align: right;
     position: absolute;
     right: 50px;
-    top: 50%
+    top: 15%
 }
 
 .barbell {
     width: 100%;
-    height: auto;
+    max-height: 100px;
 }
 
 h1 {
