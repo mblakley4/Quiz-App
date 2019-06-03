@@ -129,13 +129,16 @@ fieldset {
 .answers {
     margin: 15px;
     line-height: 40px;
-    text-align: left;
-    width: auto;
 } 
+
+input {
+    margin: .4rem;
+}
 
 .radioButtons {
     margin: 25px;
     padding-left: 10px;
+    text-align: left;
 }
 
 .correctAnswer, .incorrectAnswer {
@@ -164,6 +167,7 @@ fieldset {
     margin-left: auto;
     margin-right: auto;
     max-width: 1020;
+    margin: 5px;
 }    
 
 .h_line {

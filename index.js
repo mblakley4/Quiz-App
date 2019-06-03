@@ -1,6 +1,6 @@
 "use strict";
 
-let questionNumber = 9;
+let questionNumber = 0;
 let userScore = 0;
 let userAnswerID = '';
 let userAnswerVal = '';
@@ -23,13 +23,13 @@ function renderQuizPage() {
             <form class="answers"><fieldset>
             <div class="radioButtons">
             <input type="radio" id="choice1OBJ" name="answer" value="${STORE[questionNumber].choice1OBJ.choice1}" required>
-            ${STORE[questionNumber].choice1OBJ.choice1}<br>
+            <label for="choice1OBJ">${STORE[questionNumber].choice1OBJ.choice1}</label><br>
             <input type="radio" id="choice2OBJ" name="answer" value="${STORE[questionNumber].choice2OBJ.choice2}" required>
-            ${STORE[questionNumber].choice2OBJ.choice2}<br>
+            <label for="choice2OBJ">${STORE[questionNumber].choice2OBJ.choice2}</lablel><br>
             <input type="radio" id="choice3OBJ" name="answer" value="${STORE[questionNumber].choice3OBJ.choice3}" required>
-            ${STORE[questionNumber].choice3OBJ.choice3}<br>
+            <label for="choice3OBJ">${STORE[questionNumber].choice3OBJ.choice3}</label><br>
             <input type="radio" id="choice4OBJ" name="answer" value="${STORE[questionNumber].choice4OBJ.choice4}" required>
-            ${STORE[questionNumber].choice4OBJ.choice4}
+            <label for="choice4OBJ">${STORE[questionNumber].choice4OBJ.choice4}</label>
             </div>
             <button class="submitAnswer">Submit Answer</button>
             </fieldset></form>`);
@@ -199,7 +199,7 @@ function beginQuiz() {
 
 //function to set userAnswers to 'false' in STORE
 function quizReset() {
-    questionNumber = 9;
+    questionNumber = 0;
     userScore = 0;
     for (let i = 0; i < STORE.length; i++) {
     STORE[i].choice1OBJ.userAnswer = false;
