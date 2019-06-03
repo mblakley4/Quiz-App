@@ -9,7 +9,7 @@ html {
 body {
     height: 100%;
     color: rgb(216, 216, 216); 
-    max-width: 1080px;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -17,17 +17,22 @@ body {
 
 p {
     margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
 }
 /*
 font-family: 'Work Sans', sans-serif;
 font-family: 'Arimo', sans-serif;
 font-family: 'Anton', sans-serif;
 font-family: 'Staatliches', cursive;
+font-family: 'Bai Jamjuree', sans-serif;
+font-family: 'Kosugi Maru', sans-serif;
 */
 
 .statusBar {
     position: relative;
     display: flex;
+    justify-content: center;
     font-family: 'Anton', sans-serif;
 }
 
@@ -54,9 +59,11 @@ font-family: 'Staatliches', cursive;
 .barbell {
     width: 90%;
     max-height: 100px;
+    max-width: 720px;
 }
 
 h1 {
+    font-family: 'Staatliches', cursive;
     text-align: center;
     margin-top: 25px;
     margin-bottom: 25px;
@@ -92,16 +99,23 @@ div.homePage p {
 display: none;
 }
 
-.js-quizPage {
-    display: flex;
-    max-width: 1020;
-    flex-direction: column;
+h3 {
+    font-family: 'Kosugi Maru', sans-serif;
 }
 
-h3, h4, h5 {
+h4 {
+    font-family: 'Arimo', sans-serif;
+}
+
+h3, h4 {
+    font-size: 25px;
+    font-weight: bold;
     text-align: center;
     margin: 15px;
     padding: 5px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 fieldset {
@@ -114,7 +128,9 @@ fieldset {
 
 .answers {
     margin: 15px;
-    line-height: 35px;
+    line-height: 40px;
+    text-align: left;
+    width: auto;
 } 
 
 .radioButtons {
@@ -134,15 +150,48 @@ fieldset {
     width: 90%;
     padding: 10px;
     font-family: 'Arimo', sans-serif;
+    height: 100%
+    display: flex;
+    flex-direction: column;
 }
 
-.finalMessage {
-    position: absolute;
-    width: 90%;
+.js-quizPage {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1020;
+}    
+
+.h_line {
+    width:100%; 
+    height:1px; 
+    background: #fff;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.finalMessage {
+    /* font-family: 'Bai Jamjuree', sans-serif; */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 90%;
+    height: auto;
+    line-height: 35px;
+    text-shadow: 1.5px 1.5px 0px black;
+}
+
+.finalScore {
+    position: absolute;
+    padding: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    top:10%;
 }
 
 .scratchMetal {
@@ -157,6 +206,7 @@ fieldset {
     margin:10px;
     width: 85%;
     height: auto;
+    max-height: 400px;
 }
 
 .submitAnswer, .nextQuestionButton, .restartQuizButton {
@@ -168,13 +218,14 @@ fieldset {
 button {
     display: block;
     border: none;
+    border-radius: 2px;
     padding: 1rem 2rem;
     margin: 15px;
     text-decoration: none;
     background: #376bac;
     color: rgb(216, 216, 216);
     font-family: 'Staatliches', cursive;
-    font-size: 1rem;
+    font-size: 1.2rem;
     cursor: pointer;
     text-align: center;
     transition: background 250ms ease-in-out, 

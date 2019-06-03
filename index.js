@@ -1,6 +1,6 @@
 "use strict";
 
-let questionNumber = 0;
+let questionNumber = 9;
 let userScore = 0;
 let userAnswerID = '';
 let userAnswerVal = '';
@@ -9,14 +9,14 @@ let userAnswerVal = '';
 function renderQuizPage() {
     //add class .hidden to "homePage" elements
     $('.homePage').addClass('hidden');
-    if (questionNumber < STORE.length) {
     //adds HTML to <header> for .js-userProgress
         $('.statusBar').removeClass('hidden');
-        $('.js-userProgress').html(
-            `<span>QUESTION<br>${questionNumber+1} of ${STORE.length}</span>`);
         //adds HTML to <header> for .js-userScore
         $('.js-userScore').html(
             `<span>CORRECT<br>${userScore} of ${questionNumber}</span>`);
+    if (questionNumber < STORE.length) {
+        $('.js-userProgress').html(
+            `<span>QUESTION<br>${questionNumber+1} of ${STORE.length}</span>`);
         //adds HTML to <main> to populate the form, radio, and submit buttons
         $('.js-quizPage').html(
             `<h3>${STORE[questionNumber].question}</h3>
@@ -43,20 +43,20 @@ function getUserAnswer(){
     //listens in the DOM for clicks to the submit button 
     $('.js-quizPage').on('click', '.submitAnswer', function() {
         event.preventDefault();
-        console.log('you submitted this answer:');
-        //get the value of clicked radio to determine user selected answer
-         let radios = document.getElementsByName('answer');
-         console.log(radios);
-         for (let i = 0; i < radios.length; i++) {
-             if (radios[i].checked) {
-                userAnswerID = radios[i].id;
-                userAnswerVal = radios[i].value;
-                console.log(`userAnswerVal is ${userAnswerVal}`)
-                //store user answer for future updates to app
-                STORE[questionNumber][userAnswerID].userAnswer = true;
+            console.log('you submitted this answer:');
+             //get the value of clicked radio to determine user selected answer
+             let radios = document.getElementsByName('answer');
+             console.log(radios);
+             for (let i = 0; i < radios.length; i++) {
+                 if (radios[i].checked) {
+                    userAnswerID = radios[i].id;
+                    userAnswerVal = radios[i].value;
+                    console.log(`userAnswerVal is ${userAnswerVal}`)
+                    //store user answer for future updates to app
+                    STORE[questionNumber][userAnswerID].userAnswer = true;
+                }
             }
-        }
-        checkAnswer();
+            checkAnswer();
     });
 }
 
@@ -94,7 +94,7 @@ function correctAnswerDisplay() {
 //function to render display for incorrect answer
 function incorrectAnswerDisplay() {
     console.log('`incorrectAnswerDisplay` ran');
-    let correctAnswer = STORE[questionNumber]
+    //let correctAnswer = ...NEW FUNCTION...getCorrectAnswer
     $('.answers').addClass('hidden');
     $('h3').append(
         `<div class="incorrectAnswer">
@@ -102,14 +102,25 @@ function incorrectAnswerDisplay() {
         alt="distressed sheet metal">
         <div class="questionFeedback">
         <h4>Not quite</h4>
-        <p>'${userAnswerVal}' was the correct answer</p>
+        <p>'${userAnswerVal}' is <i>not</i> correct</p>
         <button class="nextQuestionButton">Next</button>
         </div></div>`
     );
 }
 
-//function to move the quiz to the next question or score page
+//function to provide user feedback on what is the correct answer
+//function getCorrectAnswer(items) {
+    //iterate through array/object testing for correctChoice = true, then 
+    //return the value of choice#
+    // let checkThis = items.find(item => STORE.correctChoice === true);
+    // console.log('checkThis is' + checkThis);
+    //-------example code to find id key, for me id = correctChoice--------------
+    //function findById(items, idNum) {
+        //return items.find(item => item.id === idNum);
+//}
+
 function advanceQuizPage() {
+    //function to move the quiz to the next question or score page\
     console.log('`advanceQuizPage` ran');
     //actively listens for clicks to 'next button'
     $('.js-quizPage').on('click', `.nextQuestionButton`, function() {
@@ -140,13 +151,12 @@ function renderScorePage() {
     console.log('didUserPass is' + didUserPass);
     if (didUserPass === true) {
         $('.js-quizPage').html(
-            `<img class="diamondPlate" src="https://i.pinimg.com/originals/96/6a/7b/966a7b0fa51a0e145aa6b2fe8cd56923.jpg"
+            `<div class="finalMessage">
+            <img class="diamondPlate" src="https://i.pinimg.com/originals/96/6a/7b/966a7b0fa51a0e145aa6b2fe8cd56923.jpg"
             alt="black diamond plate">
-            <div class="finalMessage">
             <div class="finalScore">
             <h4>Here's the roll-up:</h4>
-            <p>You got ${userScore} / ${STORE.length} correct.</p></div>
-            <div class="passingScore">
+            <p>You got ${userScore} / ${STORE.length} correct.</p><hr />
             <h4>Congratulations!</h4>
             <p>Now go get busy in the gym!</p>
             <button class="restartQuizButton">Take the Quiz Again</button></div></div>`
@@ -154,15 +164,14 @@ function renderScorePage() {
     }
     else {
         $('.js-quizPage').html(
-            `<img class="diamondPlate" src="https://i.pinimg.com/originals/96/6a/7b/966a7b0fa51a0e145aa6b2fe8cd56923.jpg"
+            `<div class="finalMessage">
+            <img class="diamondPlate" src="https://i.pinimg.com/originals/96/6a/7b/966a7b0fa51a0e145aa6b2fe8cd56923.jpg"
             alt="black diamond plate">
-            <div class="finalMessage">
             <div class="finalScore">
             <h4>Here's the roll-up:</h4>
-            <p>You got ${userScore} / ${STORE.length} correct.</p></div>
-            <div class="failingScore">
-            <p>Getting to the gym is half the battle...</p>
-            <p>You should study up and try again or invest in a personal trainer.</p>
+            <p>You got ${userScore} / ${STORE.length} correct.</p>
+            <div class="h_line"></div>
+            <p>Study up and try again!</p>
             <button class="restartQuizButton">Take the Quiz Again</button></div></div>`
         );
     }
@@ -190,7 +199,7 @@ function beginQuiz() {
 
 //function to set userAnswers to 'false' in STORE
 function quizReset() {
-    questionNumber = 0;
+    questionNumber = 9;
     userScore = 0;
     for (let i = 0; i < STORE.length; i++) {
     STORE[i].choice1OBJ.userAnswer = false;
