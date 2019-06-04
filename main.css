@@ -29,11 +29,6 @@ font-family: 'Bai Jamjuree', sans-serif;
 font-family: 'Kosugi Maru', sans-serif;
 */
 
-#preload-01 {
-    background: url(http://americanovirtual.com/pluginfile.php/13977/mod_folder/content/0/BATMANS/a7c63ab43ba164ed536556b278443bf1.jpg)
-    no-repeat -9999px -9999px;
-}
-
 .statusBar {
     position: relative;
     display: flex;
@@ -132,18 +127,18 @@ fieldset {
 }
 
 .answers {
-    margin: 15px;
-    line-height: 40px;
+    width: 100%
 } 
 
 input {
     margin: .4rem;
+    display: inline-block;
 }
 
 .radioButtons {
-    margin: 25px;
-    padding-left: 10px;
+    margin: 15px;
     text-align: left;
+    line-height: 30px;
 }
 
 .correctAnswer, .incorrectAnswer {
