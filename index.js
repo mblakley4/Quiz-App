@@ -56,6 +56,16 @@ function getUserAnswer(){
     });
 }
 
+$.fn.preload = function() {
+    //function to preload images for the DOM
+    this.each(function(){
+        $('<img/>')[0].src = this;
+    });
+}
+//array of images to preload 
+$(['http://americanovirtual.com/pluginfile.php/13977/mod_folder/content/0/BATMANS/a7c63ab43ba164ed536556b278443bf1.jpg'],
+['https://i.pinimg.com/originals/96/6a/7b/966a7b0fa51a0e145aa6b2fe8cd56923.jpg']).preload();
+
 function checkAnswer() {
     //function to check if userAnswer is correct or not
     if (STORE[questionNumber][userAnswerID].correctChoice) {
@@ -112,7 +122,6 @@ function getCorrectAnswer() {
     else {
         correctAnswer = STORE[questionNumber].choice4OBJ.choice4;
     }
-
     incorrectAnswerDisplay(correctAnswer);
 }
 
@@ -202,13 +211,5 @@ function quizReset() {
 $(handleQuizEvents);
 
 
-$.fn.preload = function() {
-    //function to preload images for the DOM
-    this.each(function(){
-        $('<img/>')[0].src = this;
-    });
-}
-//array of images to preload 
-$(['http://americanovirtual.com/pluginfile.php/13977/mod_folder/content/0/BATMANS/a7c63ab43ba164ed536556b278443bf1.jpg'],
-['https://i.pinimg.com/originals/96/6a/7b/966a7b0fa51a0e145aa6b2fe8cd56923.jpg']).preload();
+
 
