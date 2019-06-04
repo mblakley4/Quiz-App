@@ -82,7 +82,7 @@ function correctAnswerDisplay() {
     $('.answers').addClass('hidden');
     $('h3').append(
         `<div class="correctAnswer">
-        <img class="scratchMetal" src="http://americanovirtual.com/pluginfile.php/13977/mod_folder/content/0/BATMANS/a7c63ab43ba164ed536556b278443bf1.jpg"
+        <img class="scratchMetal" src="https://raw.githubusercontent.com/mblakley4/Quiz-App/master/Scratched%20Metal.jpg"
         alt="distressed sheet metal">
         <div class="questionFeedback">
         <h4>Nice Work!</h4>
@@ -97,7 +97,7 @@ function incorrectAnswerDisplay(answerValue) {
     $('.answers').addClass('hidden');
     $('h3').append(
         `<div class="incorrectAnswer">
-        <img class="scratchMetal" src="http://americanovirtual.com/pluginfile.php/13977/mod_folder/content/0/BATMANS/a7c63ab43ba164ed536556b278443bf1.jpg"
+        <img class="scratchMetal" src="https://raw.githubusercontent.com/mblakley4/Quiz-App/master/Scratched%20Metal.jpg"
         alt="distressed sheet metal">
         <div class="questionFeedback">
         <h4>Not quite</h4>
