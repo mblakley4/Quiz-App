@@ -20,7 +20,7 @@ function renderQuizPage() {
         //adds HTML to <main> to populate the form, radio, and submit buttons
         $('.js-quizPage').html(
             `<h3>${STORE[questionNumber].question}</h3>
-            <form class="answers"><fieldset>
+            <form class="answers" method="post"><fieldset>
             <div class="radioButtons">
             <input type="radio" id="choice1OBJ" name="answer" value="${STORE[questionNumber].choice1OBJ.choice1}" required>
             <label for="choice1OBJ">${STORE[questionNumber].choice1OBJ.choice1}</label><br>
@@ -42,7 +42,7 @@ function renderQuizPage() {
 function getUserAnswer(){
     //listens in the DOM for clicks to the submit button 
     $('.js-quizPage').on('click', '.submitAnswer', function() {
-        event.preventDefault();
+            event.preventDefault();
             console.log('you submitted this answer:');
              //get the value of clicked radio to determine user selected answer
              let radios = document.getElementsByName('answer');
