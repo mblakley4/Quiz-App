@@ -5,11 +5,10 @@ let userScore = 0;
 let userAnswerID = '';
 let userAnswerVal = '';
 
-//function to render quiz page
 function renderQuizPage() {
-    //add class .hidden to "homePage" elements
+    //function to render quiz page
     $('.homePage').addClass('hidden');
-    //adds HTML to <header> for .js-userProgress
+    //add class .hidden to "homePage" elements
         $('.statusBar').removeClass('hidden');
         //adds HTML to <header> for .js-userScore
         $('.js-userScore').html(
@@ -43,15 +42,12 @@ function getUserAnswer(){
     //listens in the DOM for clicks to the submit button 
     $('.js-quizPage').on('click', '.submitAnswer', function() {
             event.preventDefault();
-            console.log('you submitted this answer:');
              //get the value of clicked radio to determine user selected answer
              let radios = document.getElementsByName('answer');
-             console.log(radios);
              for (let i = 0; i < radios.length; i++) {
                  if (radios[i].checked) {
                     userAnswerID = radios[i].id;
                     userAnswerVal = radios[i].value;
-                    console.log(`userAnswerVal is ${userAnswerVal}`)
                     //store user answer for future updates to app
                     STORE[questionNumber][userAnswerID].userAnswer = true;
                 }
@@ -60,24 +56,19 @@ function getUserAnswer(){
     });
 }
 
-//function to check if userAnswer is correct or not
 function checkAnswer() {
-    console.log('`checkAnswer` ran');
-    //console.log(`correct choice is ${STORE[questionNumber][userAnswer].correctChoice}`);
+    //function to check if userAnswer is correct or not
     if (STORE[questionNumber][userAnswerID].correctChoice) {
-        console.log('you got it right');
         scoreIncrementer();
         correctAnswerDisplay();
     }
     else {
-        console.log('you got it wrong')
         incorrectAnswerDisplay();
     }
 }
 
-//function to render display for correct answer
 function correctAnswerDisplay() {
-    console.log('`correctAnswerDisplay` ran');
+    //function to render display for correct answer
     $('.answers').addClass('hidden');
     $('h3').append(
         `<div class="correctAnswer">
@@ -91,10 +82,8 @@ function correctAnswerDisplay() {
     );
 }
 
-//function to render display for incorrect answer
 function incorrectAnswerDisplay() {
-    console.log('`incorrectAnswerDisplay` ran');
-    //let correctAnswer = ...NEW FUNCTION...getCorrectAnswer
+    //function to render display for incorrect answer
     $('.answers').addClass('hidden');
     $('h3').append(
         `<div class="incorrectAnswer">
@@ -121,8 +110,6 @@ function incorrectAnswerDisplay() {
 
 function advanceQuizPage() {
     //function to move the quiz to the next question or score page\
-    console.log('`advanceQuizPage` ran');
-    //actively listens for clicks to 'next button'
     $('.js-quizPage').on('click', `.nextQuestionButton`, function() {
         event.preventDefault();
         progressIncrementer();
@@ -130,25 +117,20 @@ function advanceQuizPage() {
     });
 }
 
-//function to increment userProgress through quiz, 
 function progressIncrementer() {
-    console.log('`progressIncrementer` ran');
+    //function to increment userProgress through quiz, 
     questionNumber++;
 } 
 
-//function to increment the user score
 function scoreIncrementer() {
+    //function to increment the user score
     userScore++;
-    console.log("userScore is " + userScore);
 }
 
-
-//function to render the score page
 function renderScorePage() {
-    console.log('`renderScorePage` ran');
-    //determine if user passed the quiz
+    //function to render the score page
     let didUserPass = (userScore/STORE.length >= 0.7) ? true : false;
-    console.log('didUserPass is' + didUserPass);
+    //determine if user passed the quiz
     if (didUserPass === true) {
         $('.js-quizPage').html(
             `<div class="finalMessage">
@@ -177,8 +159,8 @@ function renderScorePage() {
     }
 }
 
-//function to start the quiz 
 function handleQuizEvents() {
+    //function to start the quiz 
     beginQuiz();
     getUserAnswer();
     advanceQuizPage();
@@ -197,8 +179,8 @@ function beginQuiz() {
     })
 }
 
-//function to set userAnswers to 'false' in STORE
 function quizReset() {
+    //function to set userAnswers to 'false' in STORE
     questionNumber = 0;
     userScore = 0;
     for (let i = 0; i < STORE.length; i++) {
@@ -210,3 +192,15 @@ function quizReset() {
 }
 
 $(handleQuizEvents);
+
+
+$.fn.preload = function() {
+    //function to preload images for the DOM
+    this.each(function(){
+        $('<img/>')[0].src = this;
+    });
+}
+//array of images to preload 
+$(['http://americanovirtual.com/pluginfile.php/13977/mod_folder/content/0/BATMANS/a7c63ab43ba164ed536556b278443bf1.jpg'],
+['https://i.pinimg.com/originals/96/6a/7b/966a7b0fa51a0e145aa6b2fe8cd56923.jpg']).preload();
+
