@@ -24,7 +24,7 @@ function renderQuizPage() {
             <input type="radio" id="choice1OBJ" name="answer" value="${STORE[questionNumber].choice1OBJ.choice1}" required>
             <label for="choice1OBJ">${STORE[questionNumber].choice1OBJ.choice1}</label><br>
             <input type="radio" id="choice2OBJ" name="answer" value="${STORE[questionNumber].choice2OBJ.choice2}" required>
-            <label for="choice2OBJ">${STORE[questionNumber].choice2OBJ.choice2}</lablel><br>
+            <label for="choice2OBJ">${STORE[questionNumber].choice2OBJ.choice2}</label><br>
             <input type="radio" id="choice3OBJ" name="answer" value="${STORE[questionNumber].choice3OBJ.choice3}" required>
             <label for="choice3OBJ">${STORE[questionNumber].choice3OBJ.choice3}</label><br>
             <input type="radio" id="choice4OBJ" name="answer" value="${STORE[questionNumber].choice4OBJ.choice4}" required>
@@ -63,7 +63,7 @@ function checkAnswer() {
         correctAnswerDisplay();
     }
     else {
-        incorrectAnswerDisplay();
+        getCorrectAnswer();
     }
 }
 
@@ -82,7 +82,7 @@ function correctAnswerDisplay() {
     );
 }
 
-function incorrectAnswerDisplay() {
+function incorrectAnswerDisplay(answerValue) {
     //function to render display for incorrect answer
     $('.answers').addClass('hidden');
     $('h3').append(
@@ -91,22 +91,30 @@ function incorrectAnswerDisplay() {
         alt="distressed sheet metal">
         <div class="questionFeedback">
         <h4>Not quite</h4>
-        <p>'${userAnswerVal}' is <i>not</i> correct</p>
+        <p>'${answerValue}' was the correct answer.</p>
         <button class="nextQuestionButton">Next</button>
         </div></div>`
     );
 }
 
-//function to provide user feedback on what is the correct answer
-//function getCorrectAnswer(items) {
-    //iterate through array/object testing for correctChoice = true, then 
-    //return the value of choice#
-    // let checkThis = items.find(item => STORE.correctChoice === true);
-    // console.log('checkThis is' + checkThis);
-    //-------example code to find id key, for me id = correctChoice--------------
-    //function findById(items, idNum) {
-        //return items.find(item => item.id === idNum);
-//}
+function getCorrectAnswer() {
+    //function to provide user feedback on what is the correct answer
+    let correctAnswer = '';
+    if (STORE[questionNumber].choice1OBJ.correctChoice === true) {
+        correctAnswer = STORE[questionNumber].choice1OBJ.choice1;
+    }
+    else if (STORE[questionNumber].choice2OBJ.correctChoice === true) {
+        correctAnswer = STORE[questionNumber].choice2OBJ.choice2;
+    }
+    else if (STORE[questionNumber].choice3OBJ.correctChoice === true) {
+        correctAnswer = STORE[questionNumber].choice3OBJ.choice3;
+    }
+    else {
+        correctAnswer = STORE[questionNumber].choice4OBJ.choice4;
+    }
+
+    incorrectAnswerDisplay(correctAnswer);
+}
 
 function advanceQuizPage() {
     //function to move the quiz to the next question or score page\
