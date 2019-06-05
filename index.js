@@ -63,8 +63,8 @@ $.fn.preload = function() {
     });
 }
 //array of images to preload 
-$(['http://americanovirtual.com/pluginfile.php/13977/mod_folder/content/0/BATMANS/a7c63ab43ba164ed536556b278443bf1.jpg'],
-['https://i.pinimg.com/originals/96/6a/7b/966a7b0fa51a0e145aa6b2fe8cd56923.jpg']).preload();
+$(['https://raw.githubusercontent.com/mblakley4/Quiz-App/master/Scratched%20Metal.jpg'],
+['https://raw.githubusercontent.com/mblakley4/Quiz-App/master/Scratched%20Metal.jpg'],['']).preload();
 
 function checkAnswer() {
     //function to check if userAnswer is correct or not
@@ -151,7 +151,7 @@ function renderScorePage() {
     if (didUserPass === true) {
         $('.js-quizPage').html(
             `<div class="finalMessage">
-            <img class="diamondPlate" src="https://i.pinimg.com/originals/96/6a/7b/966a7b0fa51a0e145aa6b2fe8cd56923.jpg"
+            <img class="diamondPlate" src="https://raw.githubusercontent.com/mblakley4/Quiz-App/master/Black%20Diamond%20Plate.jpg"
             alt="black diamond plate">
             <div class="finalScore">
             <h4>Here's the roll-up:</h4>
@@ -164,7 +164,7 @@ function renderScorePage() {
     else {
         $('.js-quizPage').html(
             `<div class="finalMessage">
-            <img class="diamondPlate" src="https://i.pinimg.com/originals/96/6a/7b/966a7b0fa51a0e145aa6b2fe8cd56923.jpg"
+            <img class="diamondPlate" src="https://raw.githubusercontent.com/mblakley4/Quiz-App/master/Black%20Diamond%20Plate.jpg"
             alt="black diamond plate">
             <div class="finalScore">
             <h4>Here's the roll-up:</h4>
