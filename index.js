@@ -30,6 +30,7 @@ function renderQuizPage() {
             <input type="radio" id="choice4OBJ" name="answer" value="${STORE[questionNumber].choice4OBJ.choice4}" required>
             <label for="choice4OBJ">${STORE[questionNumber].choice4OBJ.choice4}</label>
             </div>
+            <div class="error-messages" style="display:none;"></div>
             <button class="submitAnswer">Submit Answer</button>
             </fieldset></form>`);
     }
@@ -43,16 +44,21 @@ function getUserAnswer(){
     $('.js-quizPage').on('click', '.submitAnswer', function() {
             event.preventDefault();
              //get the value of clicked radio to determine user selected answer
+             let userSubmittedAnswer = false;
              let radios = document.getElementsByName('answer');
              for (let i = 0; i < radios.length; i++) {
                  if (radios[i].checked) {
                     userAnswerID = radios[i].id;
                     userAnswerVal = radios[i].value;
+                    userSubmittedAnswer = true;
                     //store user answer for future updates to app
                     STORE[questionNumber][userAnswerID].userAnswer = true;
+                    checkAnswer();
                 }
             }
-            checkAnswer();
+            if (userSubmittedAnswer === false) {
+                $('.error-messages').text("Please select an answer").fadeIn();
+            }
     });
 }
 
