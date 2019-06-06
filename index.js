@@ -118,16 +118,16 @@ function getCorrectAnswer() {
     //function to provide user feedback on what is the correct answer
     let correctAnswer = '';
     if (STORE[questionNumber].choice1OBJ.correctChoice === true) {
-        correctAnswer = STORE[questionNumber].choice1OBJ.choice1;
+        correctAnswer = STORE[questionNumber].choice1OBJ.choice;
     }
     else if (STORE[questionNumber].choice2OBJ.correctChoice === true) {
-        correctAnswer = STORE[questionNumber].choice2OBJ.choice2;
+        correctAnswer = STORE[questionNumber].choice2OBJ.choice;
     }
     else if (STORE[questionNumber].choice3OBJ.correctChoice === true) {
-        correctAnswer = STORE[questionNumber].choice3OBJ.choice3;
+        correctAnswer = STORE[questionNumber].choice3OBJ.choice;
     }
     else {
-        correctAnswer = STORE[questionNumber].choice4OBJ.choice4;
+        correctAnswer = STORE[questionNumber].choice4OBJ.choice;
     }
     incorrectAnswerDisplay(correctAnswer);
 }
