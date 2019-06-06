@@ -3,22 +3,22 @@ const STORE = [
     {
         question: 'One of the most common compound exercises, the Squat, targets which muscle group(s)?',
             choice1OBJ: {
-                choice1:'quadriceps',
+                choice:'quadriceps',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice2OBJ: {
-                choice2:'gluteus maximus',
+                choice:'gluteus maximus',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice3OBJ: {
-                choice3:'hamstrings',
+                choice:'hamstrings',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice4OBJ: {
-                choice4:'all of the above',
+                choice:'all of the above',
                 correctChoice: true,
                 userAnswer: false,
             },
@@ -27,22 +27,22 @@ const STORE = [
     {
         question: 'Development and growth of muscle through strength and resistance training is referred to as?',
             choice1OBJ: {
-                choice1:'atrophy',
+                choice:'atrophy',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice2OBJ: {
-                choice2:'hypertrophy',
+                choice:'hypertrophy',
                 correctChoice: true,
                 userAnswer: false,
             },
             choice3OBJ: {
-                choice3:'metaplasia',
+                choice:'metaplasia',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice4OBJ: {
-                choice4:"'getting swoll'",
+                choice:"'getting swoll'",
                 correctChoice: false,
                 userAnswer: false,
             },
@@ -51,22 +51,22 @@ const STORE = [
     {
         question: 'Abdominal muscles can be targeted through which of the following exercises?',
             choice1OBJ: {
-                choice1:'scull crushers',
+                choice:'scull crushers',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice2OBJ: {
-                choice2:'romanian deadlifts',
+                choice:'romanian deadlifts',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice3OBJ: {
-                choice3:'hanging leg raises',
+                choice:'hanging leg raises',
                 correctChoice: true,
                 userAnswer: false,
             },
             choice4OBJ: {
-                choice4:'barbell rows',
+                choice:'barbell rows',
                 correctChoice: false,
                 userAnswer: false,
             },
@@ -75,22 +75,22 @@ const STORE = [
     {
         question: 'All of the following are great back exercises, except?',
             choice1OBJ: {
-                choice1:'close grip bench press',
+                choice:'close grip bench press',
                 correctChoice: true,
                 userAnswer: false,
             },
             choice2OBJ: {
-                choice2:'bent-over barbell rows',
+                choice:'bent-over barbell rows',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice3OBJ: {
-                choice3:'pull-ups',
+                choice:'pull-ups',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice4OBJ: {
-                choice4:'deadlifts',
+                choice:'deadlifts',
                 correctChoice: false,
                 userAnswer: false,
             },
@@ -99,22 +99,22 @@ const STORE = [
     {
         question: 'You can target your anterior, medial, and posterior deltoids with which three exercises?',
             choice1OBJ: {
-                choice1:'incline, flat, and decline flyes',
+                choice:'incline, flat, and decline flyes',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice2OBJ: {
-                choice2:'body weight squat to pushup to jump',
+                choice:'body weight squat to pushup to jump',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice3OBJ: {
-                choice3:'front raises, lateral raises, and rear flyes',
+                choice:'front raises, lateral raises, and rear flyes',
                 correctChoice: true,
                 userAnswer: false,
             },
             choice4OBJ: {
-                choice4:'kettle bell swings, turkish get-ups, and box jumps',
+                choice:'kettle bell swings, turkish get-ups, and box jumps',
                 correctChoice: false,
                 userAnswer: false,
             },
@@ -123,22 +123,22 @@ const STORE = [
     {
         question: 'All of the following are types of bicep curls, except?',
             choice1OBJ: {
-                choice1:'preacher',
+                choice:'preacher',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice2OBJ: {
-                choice2:'hammer',
+                choice:'hammer',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice3OBJ: {
-                choice3:'concentration',
+                choice:'concentration',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice4OBJ: {
-                choice4:'sumo',
+                choice:'sumo',
                 correctChoice: true,
                 userAnswer: false,
             },
@@ -147,22 +147,22 @@ const STORE = [
     {
         question: 'A common way to group upper body exercises is termed?',
             choice1OBJ: {
-                choice1:'twist / bend',
+                choice:'twist / bend',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice2OBJ: {
-                choice2:'push / pull',
+                choice:'push / pull',
                 correctChoice: true,
                 userAnswer: false,
             },
             choice3OBJ: {
-                choice3:'to / fro',
+                choice:'to / fro',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice4OBJ: {
-                choice4:'out / in',
+                choice:'out / in',
                 correctChoice: false,
                 userAnswer: false,
             },
@@ -171,22 +171,22 @@ const STORE = [
     {
         question: 'What is it called when you string together more than one exercise with minimal to no rest?',
             choice1OBJ: {
-                choice1:'superset',
+                choice:'superset',
                 correctChoice: true,
                 userAnswer: false,
             },
             choice2OBJ: {
-                choice2:'playset',
+                choice:'playset',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice3OBJ: {
-                choice3:'Thor-set',
+                choice:'Thor-set',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice4OBJ: {
-                choice4:'dropset',
+                choice:'dropset',
                 correctChoice: false,
                 userAnswer: false,
             },
@@ -195,22 +195,22 @@ const STORE = [
     {
         question: 'Romanian deadlifts, leg curls, lunges and bulgarian split squats can all help strengthen which muscle?',
             choice1OBJ: {
-                choice1:'calves',
+                choice:'calves',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice2OBJ: {
-                choice2:'hamstrings',
+                choice:'hamstrings',
                 correctChoice: true,
                 userAnswer: false,
             },
             choice3OBJ: {
-                choice3:'diaphram',
+                choice:'diaphram',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice4OBJ: {
-                choice4:'pectorals',
+                choice:'pectorals',
                 correctChoice: false,
                 userAnswer: false,
             },
@@ -219,22 +219,22 @@ const STORE = [
     {
         question: 'When lifting weights, it is important to prioritize ________ over ________.',
             choice1OBJ: {
-                choice1:'mirror muscles; leg day',
+                choice:'mirror muscles; leg day',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice2OBJ: {
-                choice2:'calves; forearms',
+                choice:'calves; forearms',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice3OBJ: {
-                choice3:'hard rock; country music',
+                choice:'hard rock; country music',
                 correctChoice: false,
                 userAnswer: false,
             },
             choice4OBJ: {
-                choice4:'proper form; intensity',
+                choice:'proper form; intensity',
                 correctChoice: true,
                 userAnswer: false,
             },

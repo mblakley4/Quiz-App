@@ -21,14 +21,14 @@ function renderQuizPage() {
             `<h3>${STORE[questionNumber].question}</h3>
             <form class="answers" method="post"><fieldset>
             <div class="radioButtons">
-            <input type="radio" id="choice1OBJ" name="answer" value="${STORE[questionNumber].choice1OBJ.choice1}" required>
-            <label for="choice1OBJ">${STORE[questionNumber].choice1OBJ.choice1}</label><br>
-            <input type="radio" id="choice2OBJ" name="answer" value="${STORE[questionNumber].choice2OBJ.choice2}" required>
-            <label for="choice2OBJ">${STORE[questionNumber].choice2OBJ.choice2}</label><br>
-            <input type="radio" id="choice3OBJ" name="answer" value="${STORE[questionNumber].choice3OBJ.choice3}" required>
-            <label for="choice3OBJ">${STORE[questionNumber].choice3OBJ.choice3}</label><br>
-            <input type="radio" id="choice4OBJ" name="answer" value="${STORE[questionNumber].choice4OBJ.choice4}" required>
-            <label for="choice4OBJ">${STORE[questionNumber].choice4OBJ.choice4}</label>
+            <input type="radio" id="choice1OBJ" name="answer" value="${STORE[questionNumber].choice1OBJ.choice}" required>
+            <label for="choice1OBJ">${STORE[questionNumber].choice1OBJ.choice}</label><br>
+            <input type="radio" id="choice2OBJ" name="answer" value="${STORE[questionNumber].choice2OBJ.choice}" required>
+            <label for="choice2OBJ">${STORE[questionNumber].choice2OBJ.choice}</label><br>
+            <input type="radio" id="choice3OBJ" name="answer" value="${STORE[questionNumber].choice3OBJ.choice}" required>
+            <label for="choice3OBJ">${STORE[questionNumber].choice3OBJ.choice}</label><br>
+            <input type="radio" id="choice4OBJ" name="answer" value="${STORE[questionNumber].choice4OBJ.choice}" required>
+            <label for="choice4OBJ">${STORE[questionNumber].choice4OBJ.choice}</label>
             </div>
             <div class="error-messages" style="display:none;"></div>
             <button class="submitAnswer">Submit Answer</button>
@@ -70,7 +70,7 @@ $.fn.preload = function() {
 }
 //array of images to preload 
 $(['https://raw.githubusercontent.com/mblakley4/Quiz-App/master/Scratched%20Metal.jpg'],
-['https://raw.githubusercontent.com/mblakley4/Quiz-App/master/Scratched%20Metal.jpg'],['']).preload();
+['https://raw.githubusercontent.com/mblakley4/Quiz-App/master/Black%20Diamond%20Plate.jpg']).preload();
 
 function checkAnswer() {
     //function to check if userAnswer is correct or not
@@ -112,6 +112,7 @@ function incorrectAnswerDisplay(answerValue) {
         </div></div>`
     );
 }
+
 
 function getCorrectAnswer() {
     //function to provide user feedback on what is the correct answer
@@ -162,7 +163,7 @@ function renderScorePage() {
             <div class="finalScore">
             <h4>Here's the roll-up:</h4>
             <p>You got ${userScore} / ${STORE.length} correct.</p><hr />
-            <h4>Congratulations!</h4>
+            <h4>Congratulations! You passed!</h4>
             <p>Now go get busy in the gym!</p>
             <button class="restartQuizButton">Take the Quiz Again</button></div></div>`
         );
