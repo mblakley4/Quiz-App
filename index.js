@@ -57,6 +57,7 @@ function getUserAnswer(){
                     userSubmittedAnswer = true;
                     //store user answer for future updates to app
                     STORE[questionNumber][userAnswerID].userAnswer = true;
+                    $('.error-messages').addClass('hidden');
                     checkAnswer();
                 }
             }
