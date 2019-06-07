@@ -18,17 +18,21 @@ function renderQuizPage() {
             `<span>QUESTION<br>${questionNumber+1} of ${STORE.length}</span>`);
         //adds HTML to <main> to populate the form, radio, and submit buttons
         $('.js-quizPage').html(
-            `<h3>${STORE[questionNumber].question}</h3>
-            <form class="answers" method="post"><fieldset>
+            `<form class="answers" method="post"><fieldset>
+            <legend>${STORE[questionNumber].question}</legend>
             <div class="radioButtons">
+            <label>
             <input type="radio" id="choice1OBJ" name="answer" value="${STORE[questionNumber].choice1OBJ.choice}" required>
-            <label for="choice1OBJ">${STORE[questionNumber].choice1OBJ.choice}</label><br>
+            ${STORE[questionNumber].choice1OBJ.choice}</label>
+            <label>
             <input type="radio" id="choice2OBJ" name="answer" value="${STORE[questionNumber].choice2OBJ.choice}" required>
-            <label for="choice2OBJ">${STORE[questionNumber].choice2OBJ.choice}</label><br>
+            ${STORE[questionNumber].choice2OBJ.choice}</label>
+            <label>
             <input type="radio" id="choice3OBJ" name="answer" value="${STORE[questionNumber].choice3OBJ.choice}" required>
-            <label for="choice3OBJ">${STORE[questionNumber].choice3OBJ.choice}</label><br>
+            ${STORE[questionNumber].choice3OBJ.choice}</label>
+            <label>
             <input type="radio" id="choice4OBJ" name="answer" value="${STORE[questionNumber].choice4OBJ.choice}" required>
-            <label for="choice4OBJ">${STORE[questionNumber].choice4OBJ.choice}</label>
+            ${STORE[questionNumber].choice4OBJ.choice}</label>
             </div>
             <div class="error-messages" style="display:none;"></div>
             <button class="submitAnswer">Submit Answer</button>
@@ -85,8 +89,9 @@ function checkAnswer() {
 
 function correctAnswerDisplay() {
     //function to render display for correct answer
-    $('.answers').addClass('hidden');
-    $('h3').append(
+    $('.radioButtons').addClass('hidden');
+    $('.submitAnswer').addClass('hidden');
+    $('legend').append(
         `<div class="correctAnswer">
         <img class="scratchMetal" src="https://raw.githubusercontent.com/mblakley4/Quiz-App/master/Scratched%20Metal.jpg"
         alt="distressed sheet metal">
@@ -100,8 +105,9 @@ function correctAnswerDisplay() {
 
 function incorrectAnswerDisplay(answerValue) {
     //function to render display for incorrect answer
-    $('.answers').addClass('hidden');
-    $('h3').append(
+    $('.radioButtons').addClass('hidden');
+    $('.submitAnswer').addClass('hidden');
+    $('legend').append(
         `<div class="incorrectAnswer">
         <img class="scratchMetal" src="https://raw.githubusercontent.com/mblakley4/Quiz-App/master/Scratched%20Metal.jpg"
         alt="distressed sheet metal">
